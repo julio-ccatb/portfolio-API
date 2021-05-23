@@ -1,0 +1,30 @@
+{
+  "name": "portfolio-api",
+  "version": "1.0.0",
+  "description": "Rest-API that serves information about repositories in a github account ",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julio-ccatb/portfolio-API.git"
+  },
+  "author": "Julio Castaño",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julio-ccatb/portfolio-API/issues"
+  },
+  "homepage": "https://github.com/julio-ccatb/portfolio-API#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "connect-multiparty": "^2.2.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
