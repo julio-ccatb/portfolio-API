@@ -5,7 +5,7 @@ const GitHubController = require('../Controllers/GitHubController');
 //METHODS
 
 //GET
-Router.get('/test',GitHubController.test);
+Router.get('/info',GitHubController.getInfo);
 
 
 //POST

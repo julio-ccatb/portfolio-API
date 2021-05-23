@@ -2,7 +2,7 @@ const axios = require('axios');
 
 var Controller = {
 
-    test: async (req, res) => {
+    getInfo: async (req, res) => {
 
         let { data } = await axios.get('https://api.github.com/users/julio-ccatb/repos');
         let projects = data.map((project) => {
