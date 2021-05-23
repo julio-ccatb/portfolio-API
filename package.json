@@ -13,19 +13,21 @@
     "url": "git+https://github.com/julio-ccatb/portfolio-API.git"
   },
   "author": "Julio Castaño",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/julio-ccatb/portfolio-API/issues"
   },
   "homepage": "https://github.com/julio-ccatb/portfolio-API#readme",
+  "devdependencies": {
+    "nodemon": "^2.0.7",
+    "dotenv": "^10.0.0",    
+    "cross-env": "^7.0.3"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "connect-multiparty": "^2.2.0",
     "cors": "^2.8.5",
-    "cross-env": "^7.0.3",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "nodemon": "^2.0.7"
+    "express": "^4.17.1"
   }
 }
