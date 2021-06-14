@@ -5,7 +5,7 @@ var app = express();
 
 //Loads rute files
 const github_routes = require('./Routes/GitHub');
-const Info_Router = require('./Routes/info');
+const Info_Router = require('./Routes/Info');
 //middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
