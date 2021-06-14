@@ -1,25 +1,35 @@
 const axios = require('axios');
+const { Experience } = require('../models/experience');
+const { Project } = require('../models/project');
+const Code = require('../libs/responses');
 
 var Controller = {
 
-    getInfo: async (req, res) => {
+    RefreshInfo: async (req, res) => {
 
         let { data } = await axios.get('https://api.github.com/users/julio-ccatb/repos');
-        let projects = data.map((project) => {
-            return { name: project.name, url: project.html_url, description: project.description }
+
+        let Projects = data.map((item) => {
+            return new Project({
+                _id: item.id,
+                name: item.name,
+                url: item.html_url,
+                description: item.description,
+                language: item.language,
+                updated_at: item.updated_at
+            })
+
         })
-        let profile = {
-            url: data[0].owner.html_url,
-            avatar: data[0].owner.avatar_url
-        }
 
+        Project.insertMany(Projects, { ordered: true }, (err, projectsSaved) => {
 
-        if (data) return res.status(200).send([{profile, projects}]);
+            if (err) return res.status(500).send({ message: Code._500, err });
+            if (!projectsSaved) return res.status(409).send({ message: Code._409 });
 
-    }
+            return res.status(201).send(projectsSaved)
 
-
-
+        })
+    },
 }
 
 module.exports = Controller;
