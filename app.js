@@ -6,6 +6,7 @@ var app = express();
 //Loads rute files
 const github_routes = require('./Routes/GitHub');
 const Info_Router = require('./Routes/Info');
+const Auth_Router = require('./Routes/Auth');
 //middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -15,7 +16,7 @@ app.use(cors());
 //Rutes
 
 //ADD ROUTE ARRYS HERE
-app.use('/api', [github_routes, Info_Router]);
+app.use('/api', [github_routes, Info_Router, Auth_Router]);
 
 //Exports
 
