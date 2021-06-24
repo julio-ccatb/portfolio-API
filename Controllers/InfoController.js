@@ -38,6 +38,8 @@ var Controller = {
         let { params } = req;
         let { _id } = params;
 
+        if (!_id) return res.status(400).send({ message: Code._400 });
+
         try {
 
             projectFinded = await Project.findById(_id);
@@ -101,6 +103,7 @@ var Controller = {
             let { _id } = params
             let { filename, path } = file
 
+            if (!_id) return res.status(400).send({ message: Code._400 });
 
             let projectUpdated = await Project.findOneAndUpdate({ _id }, { img: filename }, {
                 new: true,
@@ -138,6 +141,8 @@ var Controller = {
             const relative_path = `../resources/images/`;
             let { params } = req;
             let { img } = params
+
+            if (!img) return res.status(400).send({ message: Code._400 });
 
             let ext = 'jpeg';
             let absoliute_path = `${__dirname}/${relative_path}${img}.${ext}`;
